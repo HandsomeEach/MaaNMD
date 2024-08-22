@@ -1,5 +1,60 @@
 {
-    "MyTask1": {},
-    "MyTask2": {},
-    "MyTask3": {}
+    "bounty": {
+        "recognition":"OCR",
+        "expected":"^(A|B|C|D)Bounty$",
+        "action":"Click",
+        "next":[
+            "TeamInvite"
+        ]
+    },
+    "TeamInvite": {
+        "recognition":"TemplateMatch",
+        "template":"TeamInvite.png",
+        "threshold": 0.4,
+        "action":"Click",
+        "next":[
+            "SendMessage"
+        ]
+    },
+    "SendMessage": {
+        "recognition":"OCR",
+        "expected":"Send Message",
+        "action":"Click",
+        "next":[
+            "Click"
+        ]
+    },
+    "Click": {
+        "recognition":"OCR",
+        "expected":"Bounty",
+        "action":"Click",
+        "next":[
+            "Go"
+        ]
+    },
+    "Go": {
+        "recognition":"OCR",
+        "expected":"Go",
+        "action":"Click",
+        "next":[
+            "back"
+        ]
+    },
+    "back": {
+        "recognition":"TemplateMatch",
+        "template":"back.png",
+        "threshold": 0.4,
+        "action":"Click",
+        "next":[
+            "Confirm"
+        ]
+    },
+    "Confirm":{
+        "recognition":"OCR",
+        "expected":"Confirm",
+        "action":"Click",
+        "next":[
+            "bounty"
+        ]
+    }
 }
